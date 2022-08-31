@@ -1,0 +1,3 @@
+ triangulo()
+        cuadrado()
+        pentagono()

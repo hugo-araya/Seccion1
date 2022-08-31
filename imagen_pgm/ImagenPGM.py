@@ -1,6 +1,7 @@
 def Configuracion(clave):
     config = {
-        'autor': '# << Hugo Araya Carrasco - 2022 >>'
+        'autor': '# << Hugo Araya Carrasco - 2022 >>',
+        'despedida': 'Eso es todo.'
     }
     return config[clave]
 
@@ -76,6 +77,7 @@ def Informacion(imagen):
     print('Alto  :', Alto(imagen))
     print('Grises:', Grises(imagen))
     print('Promedio: ', PromedioPixeles(imagen))
+    print()
 
 def Pixeles(imagen):
     return imagen['pixeles']
@@ -107,3 +109,34 @@ def EscribirImagen(nuevoNombre, imagen):
     sal.write('\n')
     sal.close()
 
+def Binariza(imagen):
+    salida = CreaImagen()
+    nuevo_pixel = []
+    pixeles = Pixeles(imagen)
+    umbral = int(PromedioPixeles(imagen))
+    for pixel in pixeles:
+        if pixel < umbral:
+            nuevo_pixel.append(0)
+        else:
+            nuevo_pixel.append(255)
+    salida['magica'] = Magica(imagen)
+    salida['comentario'] = Comentario(imagen)[:]
+    salida['ancho'] = Ancho(imagen)
+    salida['alto'] = Alto(imagen)
+    salida['gris'] = 255
+    salida['pixeles'] = nuevo_pixel[:]
+    return salida
+
+def Negativo(imagen):
+    salida = CreaImagen()
+    nuevo_pixel = []
+    pixeles = Pixeles(imagen)
+    for pixel in pixeles:
+        nuevo_pixel.append(255-pixel)
+    salida['magica'] = Magica(imagen)
+    salida['comentario'] = Comentario(imagen)[:]
+    salida['ancho'] = Ancho(imagen)
+    salida['alto'] = Alto(imagen)
+    salida['gris'] = 255
+    salida['pixeles'] = nuevo_pixel[:]
+    return salida
