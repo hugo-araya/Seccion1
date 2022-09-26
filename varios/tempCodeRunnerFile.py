@@ -1,3 +1,1 @@
- triangulo()
-        cuadrado()
-        pentagono()
+t(res.text)
