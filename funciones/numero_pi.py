@@ -37,5 +37,5 @@ if __name__ == '__main__':
     n = 1000000
     print(leibniz(n))
     print(wallis(n))
-    # print(euler(n))
+    #print(euler(n))
 
